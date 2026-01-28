@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration
+{% endblock %}
+
+{% block body %}
+	<div style="text-align: center">
+		<h1>Bienvenue sur la page Admin</h1>
+		<p>Cette page est sécurisée.</p>
+
+		<a href="{{ path('app_logout') }}">Se déconnecter</a>
+		<br>
+		<a href="{{ path('app_home') }}">Retour à l'accueil</a>
+	</div>
+{% endblock %}

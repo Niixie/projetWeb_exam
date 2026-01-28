@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div style="text-align: center; margin-top: 50px;">
+    <h1>Bienvenue sur le site</h1>
+
+    {% if app.user %}
+        <p>Bonjour, {{ app.user.email }}</p>
+        
+        {# Logout Button #}
+        <a href="{{ path('app_logout') }}" class="btn btn-danger" style="color: red;">
+            Se déconnecter
+        </a>
+
+        {# Admin Link#}
+        {% if is_granted('ROLE_ADMIN') %}
+            <br><br>
+            <a href="{{ path('app_admin') }}">>>> Accéder à l'espace Admin <<<</a>
+        {% endif %}
+    {% else %}
+        {# Login Button #}
+        <a href="{{ path('app_login') }}" class="btn btn-primary" style="padding: 10px;">
+            Se connecter
+        </a>
+    {% endif %}
+</div>
+{% endblock %}
